@@ -99,7 +99,7 @@ jobs:
 
       - name: Extract Docker image
         run: |
-          CONTAINER_ID=$(docker create --platform ${{ matrix.platform }} penpotapp/frontend:${{ needs.check-and-prepare.outputs.release_version }})
+          CONTAINER_ID=$(docker create --platform linux/amd64 penpotapp/frontend:${{ needs.check-and-prepare.outputs.release_version }})
           mkdir -p extracted-frontend
           docker cp $CONTAINER_ID:/var/www/app extracted-frontend/
           docker rm $CONTAINER_ID
@@ -131,7 +131,7 @@ jobs:
 
       - name: Extract Docker image
         run: |
-          CONTAINER_ID=$(docker create --platform ${{ matrix.platform }} penpotapp/backend:${{ needs.check-and-prepare.outputs.release_version }})
+          CONTAINER_ID=$(docker create --platform linux/amd64 penpotapp/backend:${{ needs.check-and-prepare.outputs.release_version }})
           mkdir -p extracted-frontend
           docker cp $CONTAINER_ID:/opt/penpot/backend extracted-backend/
           docker rm $CONTAINER_ID
@@ -302,7 +302,7 @@ jobs:
 
       - name: Extract Docker image
         run: |
-          CONTAINER_ID=$(docker create --platform ${{ matrix.platform }} penpotapp/frontend:${{ needs.check-and-prepare.outputs.release_version }})
+          CONTAINER_ID=$(docker create --platform linux/amd64 penpotapp/frontend:${{ needs.check-and-prepare.outputs.release_version }})
           mkdir -p extracted-frontend
           docker cp $CONTAINER_ID:/var/www/app extracted-frontend/
           docker rm $CONTAINER_ID
@@ -357,7 +357,7 @@ jobs:
 
       - name: Extract Docker image
         run: |
-          CONTAINER_ID=$(docker create --platform ${{ matrix.platform }} penpotapp/backend:${{ needs.check-and-prepare.outputs.release_version }})
+          CONTAINER_ID=$(docker create --platform linux/amd64 penpotapp/backend:${{ needs.check-and-prepare.outputs.release_version }})
           mkdir -p extracted-frontend
           docker cp $CONTAINER_ID:/opt/penpot/backend extracted-backend/
           docker rm $CONTAINER_ID
