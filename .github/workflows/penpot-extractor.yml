@@ -301,6 +301,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Extract Docker image
+        if: steps.check_asset.outputs.exists == 'false'
         run: |
           CONTAINER_ID=$(docker create --platform linux/amd64 penpotapp/frontend:${{ needs.check-and-prepare.outputs.release_version }})
           mkdir -p extracted-frontend
@@ -308,6 +309,7 @@ jobs:
           docker rm $CONTAINER_ID
 
       - name: Package extracted files
+        if: steps.check_asset.outputs.exists == 'false'
         run: |
           cd extracted-frontend
           tar -czf ../penpot-frontend-extracted.tar.gz app
@@ -356,6 +358,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Extract Docker image
+        if: steps.check_asset.outputs.exists == 'false'
         run: |
           CONTAINER_ID=$(docker create --platform linux/amd64 penpotapp/backend:${{ needs.check-and-prepare.outputs.release_version }})
           mkdir -p extracted-backend
@@ -363,6 +366,7 @@ jobs:
           docker rm $CONTAINER_ID
 
       - name: Package extracted files
+        if: steps.check_asset.outputs.exists == 'false'
         run: |
           cd extracted-backend
           tar -czf ../penpot-backend-extracted.tar.gz backend
