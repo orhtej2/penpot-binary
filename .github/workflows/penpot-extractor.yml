@@ -195,7 +195,7 @@ jobs:
             -T "${asset_path}" \
             "https://uploads.github.com/repos/${{ github.repository }}/releases/${{ steps.create_release.outputs.id }}/assets?name=${asset_name}"
 
-          asset_path="penpot-backend-extracted/penpot-frontend-extracted.tar.gz"
+          asset_path="penpot-backend-extracted/penpot-backend-extracted.tar.gz"
           asset_name="penpot-backend-extracted.tar.gz"
           curl -L \
             -X POST \
