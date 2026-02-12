@@ -267,7 +267,7 @@ jobs:
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
             -H "Content-Type: application/gzip" \
-            -T "vaultwarden-linux-${{ matrix.arch }}-extracted.tar.gz" \
+            -T "penpot-exporter-${{ matrix.arch }}-extracted.tar.gz" \
             "https://uploads.github.com/repos/${{ github.repository }}/releases/${{ needs.check-and-prepare.outputs.release_id }}/assets?name=penpot-exporter-${{ matrix.arch }}-extracted.tar.gz"
 
   update-existing-frontend-release:
