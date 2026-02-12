@@ -248,7 +248,7 @@ jobs:
         run: |
           CONTAINER_ID=$(docker create --platform ${{ matrix.platform }} penpotapp/exporter:${{ needs.check-and-prepare.outputs.release_version }})
           mkdir -p extracted-${{ matrix.arch }}
-          docker cp $CONTAINER_ID:/penpot extracted-${{ matrix.arch }}/
+          docker cp $CONTAINER_ID:/opt/penpot extracted-${{ matrix.arch }}/
           docker rm $CONTAINER_ID
 
       - name: Package extracted files
