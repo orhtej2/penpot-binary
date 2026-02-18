@@ -1,4 +1,4 @@
-name: Extract and Release Vaultwarden Binaries
+name: Extract and Release Penpot Binaries
 
 on:
   workflow_dispatch:
