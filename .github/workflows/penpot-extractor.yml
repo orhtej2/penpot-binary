@@ -57,7 +57,7 @@ jobs:
             platform: linux/arm64
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -89,7 +89,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -121,7 +121,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -233,7 +233,7 @@ jobs:
 
       - name: Checkout code
         if: steps.check_asset.outputs.exists == 'false'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up QEMU
         if: steps.check_asset.outputs.exists == 'false'
@@ -290,7 +290,7 @@ jobs:
 
       - name: Checkout code
         if: steps.check_asset.outputs.exists == 'false'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up QEMU
         if: steps.check_asset.outputs.exists == 'false'
@@ -347,7 +347,7 @@ jobs:
 
       - name: Checkout code
         if: steps.check_asset.outputs.exists == 'false'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up QEMU
         if: steps.check_asset.outputs.exists == 'false'
