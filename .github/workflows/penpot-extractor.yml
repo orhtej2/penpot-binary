@@ -63,7 +63,7 @@ jobs:
         uses: docker/setup-qemu-action@v4
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
 
       - name: Extract Docker image
         run: |
@@ -95,7 +95,7 @@ jobs:
         uses: docker/setup-qemu-action@v4
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
 
       - name: Extract Docker image
         run: |
@@ -127,7 +127,7 @@ jobs:
         uses: docker/setup-qemu-action@v4
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
 
       - name: Extract Docker image
         run: |
@@ -241,7 +241,7 @@ jobs:
 
       - name: Set up Docker Buildx
         if: steps.check_asset.outputs.exists == 'false'
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
 
       - name: Extract Docker image
         if: steps.check_asset.outputs.exists == 'false'
@@ -298,7 +298,7 @@ jobs:
 
       - name: Set up Docker Buildx
         if: steps.check_asset.outputs.exists == 'false'
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
 
       - name: Extract Docker image
         if: steps.check_asset.outputs.exists == 'false'
@@ -355,7 +355,7 @@ jobs:
 
       - name: Set up Docker Buildx
         if: steps.check_asset.outputs.exists == 'false'
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
 
       - name: Extract Docker image
         if: steps.check_asset.outputs.exists == 'false'
