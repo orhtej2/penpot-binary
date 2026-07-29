@@ -78,7 +78,7 @@ jobs:
           tar -czf ../penpot-exporter-${{ matrix.arch }}-extracted.tar.gz penpot
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: penpot-exporter-${{ matrix.arch }}-extracted
           path: penpot-exporter-${{ matrix.arch }}-extracted.tar.gz
@@ -110,7 +110,7 @@ jobs:
           tar -czf ../penpot-frontend-extracted.tar.gz app
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: penpot-frontend-extracted
           path: penpot-frontend-extracted.tar.gz
@@ -142,7 +142,7 @@ jobs:
           tar -czf ../penpot-backend-extracted.tar.gz backend
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: penpot-backend-extracted
           path: penpot-backend-extracted.tar.gz
