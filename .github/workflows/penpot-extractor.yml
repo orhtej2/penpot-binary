@@ -2,6 +2,11 @@ name: Extract and Release Penpot Binaries
 
 on:
   workflow_dispatch:
+    inputs:
+      tag:
+        description: Penpot release tag to extract (leave empty for the latest release)
+        required: false
+        type: string
   schedule:
     - cron: '0 */8 * * *'  
 
@@ -19,9 +24,15 @@ jobs:
     steps:
       - name: Get latest release version
         id: get_version
+        env:
+          PENPOT_TAG: ${{ inputs.tag }}
         run: |
-          LATEST_RELEASE=$(curl -s https://api.github.com/repos/penpot/penpot/releases/latest | jq -r .tag_name)
-          echo "RELEASE_VERSION=${LATEST_RELEASE}" >> $GITHUB_OUTPUT
+          if [ -n "$PENPOT_TAG" ]; then
+            RELEASE_VERSION="$PENPOT_TAG"
+          else
+            RELEASE_VERSION=$(curl -s https://api.github.com/repos/penpot/penpot/releases/latest | jq -r .tag_name)
+          fi
+          echo "RELEASE_VERSION=${RELEASE_VERSION}" >> "$GITHUB_OUTPUT"
 
       - name: Check if release exists
         id: check_release
